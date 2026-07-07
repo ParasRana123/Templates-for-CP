@@ -59,3 +59,7 @@ vector<int> allFactors(int n) {
     small.insert(small.end() , large.begin() , large.end());
     return small;
 }
+
+int main() {
+    
+}
