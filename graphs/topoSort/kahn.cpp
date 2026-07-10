@@ -10,6 +10,7 @@ class Kahn {
         vector<vector<int>> adj;
         vector<int> indegree;
         queue<int> q;
+        vector<int> ans;
         Kahn(int N , vector<vector<int>> &adjList) {
             this ->n = N;
             this->adj = adjList;
@@ -21,8 +22,7 @@ class Kahn {
             }
         }
 
-        vector<int> build() {
-            vector<int> ans;
+        void build() {
             for(int i = 0 ; i < n ; i++) {
                 if(indegree[i] == 0) {
                     q.push(i);
@@ -39,7 +39,11 @@ class Kahn {
                     }
                 }
             }
-            return ans;
+        }
+
+        bool isCyclic() {
+            if(ans.size() == n) return false;
+            return true;
         }
 };
 
@@ -53,6 +57,7 @@ int main() {
     adj[2].push_back(3);
     adj[3].push_back(1);
     Kahn k(n , adj);
-    vector<int> topo = k.build();
+    k.build();
+    // ans -> k.ans
     return 0;
 }
