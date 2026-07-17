@@ -5,7 +5,7 @@ class NTT {
     public:
        static const int MOD = 998244353;
        static const int G = 3;
-
+       
         long long modPow(long long a , long long b) {
            long long res = 1;
            while(b) {
